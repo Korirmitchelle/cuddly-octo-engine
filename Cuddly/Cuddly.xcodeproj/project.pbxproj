@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		333424B8251A8A2900EC502E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333424B7251A8A2900EC502E /* Location.swift */; };
+		339D2F9D251A569D007A26CD /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D2F9C251A569D007A26CD /* CityViewController.swift */; };
+		339D2FA1251A5DAC007A26CD /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D2FA0251A5DAC007A26CD /* WeatherCollectionViewCell.swift */; };
+		339D2FA3251A6102007A26CD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D2FA2251A6102007A26CD /* Extensions.swift */; };
+		339D2FA5251A7E1A007A26CD /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D2FA4251A7E1A007A26CD /* LocationsViewController.swift */; };
+		339D2FA9251A7E9C007A26CD /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D2FA8251A7E9C007A26CD /* BookmarksViewController.swift */; };
 		33ABE05B2519F29900C22B91 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE05A2519F29900C22B91 /* AppDelegate.swift */; };
 		33ABE05D2519F29900C22B91 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE05C2519F29900C22B91 /* SceneDelegate.swift */; };
 		33ABE05F2519F29900C22B91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE05E2519F29900C22B91 /* ViewController.swift */; };
@@ -40,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		333424B7251A8A2900EC502E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		339D2F9C251A569D007A26CD /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
+		339D2FA0251A5DAC007A26CD /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
+		339D2FA2251A6102007A26CD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		339D2FA4251A7E1A007A26CD /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
+		339D2FA8251A7E9C007A26CD /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		33ABE0572519F29900C22B91 /* Cuddly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cuddly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33ABE05A2519F29900C22B91 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33ABE05C2519F29900C22B91 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +98,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		339D2FA6251A7E23007A26CD /* viewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				339D2FA4251A7E1A007A26CD /* LocationsViewController.swift */,
+				33ABE05E2519F29900C22B91 /* ViewController.swift */,
+				33ABE09F251A29FB00C22B91 /* AddLocationViewController.swift */,
+				339D2F9C251A569D007A26CD /* CityViewController.swift */,
+				339D2FA8251A7E9C007A26CD /* BookmarksViewController.swift */,
+			);
+			path = viewControllers;
+			sourceTree = "<group>";
+		};
+		339D2FA7251A7E58007A26CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				33ABE097251A245500C22B91 /* LocationsTableViewCell.swift */,
+				33ABE099251A247F00C22B91 /* BookMarksTableViewCell.swift */,
+				339D2FA0251A5DAC007A26CD /* WeatherCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		33ABE04E2519F29800C22B91 = {
 			isa = PBXGroup;
 			children = (
@@ -109,18 +143,18 @@
 		33ABE0592519F29900C22B91 /* Cuddly */ = {
 			isa = PBXGroup;
 			children = (
+				339D2FA7251A7E58007A26CD /* Views */,
+				339D2FA6251A7E23007A26CD /* viewControllers */,
 				33ABE05A2519F29900C22B91 /* AppDelegate.swift */,
 				33ABE05C2519F29900C22B91 /* SceneDelegate.swift */,
-				33ABE05E2519F29900C22B91 /* ViewController.swift */,
 				33ABE0602519F29900C22B91 /* Main.storyboard */,
 				33ABE0632519F2A100C22B91 /* Assets.xcassets */,
 				33ABE0652519F2A100C22B91 /* LaunchScreen.storyboard */,
 				33ABE0682519F2A100C22B91 /* Info.plist */,
-				33ABE097251A245500C22B91 /* LocationsTableViewCell.swift */,
-				33ABE099251A247F00C22B91 /* BookMarksTableViewCell.swift */,
 				33ABE09B251A271000C22B91 /* NetworkService.swift */,
 				33ABE09D251A27A500C22B91 /* Model.swift */,
-				33ABE09F251A29FB00C22B91 /* AddLocationViewController.swift */,
+				339D2FA2251A6102007A26CD /* Extensions.swift */,
+				333424B7251A8A2900EC502E /* Location.swift */,
 			);
 			path = Cuddly;
 			sourceTree = "<group>";
@@ -276,9 +310,15 @@
 			files = (
 				33ABE09E251A27A500C22B91 /* Model.swift in Sources */,
 				33ABE05F2519F29900C22B91 /* ViewController.swift in Sources */,
+				339D2FA1251A5DAC007A26CD /* WeatherCollectionViewCell.swift in Sources */,
 				33ABE05B2519F29900C22B91 /* AppDelegate.swift in Sources */,
 				33ABE0A0251A29FC00C22B91 /* AddLocationViewController.swift in Sources */,
 				33ABE098251A245700C22B91 /* LocationsTableViewCell.swift in Sources */,
+				333424B8251A8A2900EC502E /* Location.swift in Sources */,
+				339D2FA9251A7E9C007A26CD /* BookmarksViewController.swift in Sources */,
+				339D2F9D251A569D007A26CD /* CityViewController.swift in Sources */,
+				339D2FA3251A6102007A26CD /* Extensions.swift in Sources */,
+				339D2FA5251A7E1A007A26CD /* LocationsViewController.swift in Sources */,
 				33ABE05D2519F29900C22B91 /* SceneDelegate.swift in Sources */,
 				33ABE09C251A271000C22B91 /* NetworkService.swift in Sources */,
 				33ABE09A251A247F00C22B91 /* BookMarksTableViewCell.swift in Sources */,

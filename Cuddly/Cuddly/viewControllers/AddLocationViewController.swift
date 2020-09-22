@@ -38,8 +38,17 @@ class AddLocationViewController: UIViewController {
         }
     }
     func showWeather(){
-        let dictionary = [locationLabel.text: lastLocation]
-        UserDefaults.standard.set(dictionary, forKey: "locations")
+        let userDefaults = UserDefaults.standard
+        if let saved = UserDefaults.standard.value(forKey: "locations") as? [String]{
+            var savedMutable = saved
+            savedMutable.append(locationLabel.text!)
+            userDefaults.set(savedMutable, forKey: "locations")
+        }
+        else{
+            var array = [String]()
+            array.append(locationLabel.text!)
+            userDefaults.set(array, forKey: "locations")
+        }
         guard lastLocation?.coordinate.latitude != nil,lastLocation?.coordinate.longitude != nil else {return}
         guard let cityController = storyboard?.instantiateViewController(identifier: "CityViewController") as? CityViewController else {return}
         cityController.currentlocation = self.lastLocation
