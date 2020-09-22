@@ -17,6 +17,9 @@
 		33ABE07D2519F2A200C22B91 /* CuddlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE07C2519F2A200C22B91 /* CuddlyUITests.swift */; };
 		33ABE098251A245700C22B91 /* LocationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE097251A245500C22B91 /* LocationsTableViewCell.swift */; };
 		33ABE09A251A247F00C22B91 /* BookMarksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE099251A247F00C22B91 /* BookMarksTableViewCell.swift */; };
+		33ABE09C251A271000C22B91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE09B251A271000C22B91 /* NetworkService.swift */; };
+		33ABE09E251A27A500C22B91 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE09D251A27A500C22B91 /* Model.swift */; };
+		33ABE0A0251A29FC00C22B91 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE09F251A29FB00C22B91 /* AddLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		33ABE07E2519F2A200C22B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33ABE097251A245500C22B91 /* LocationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewCell.swift; sourceTree = "<group>"; };
 		33ABE099251A247F00C22B91 /* BookMarksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarksTableViewCell.swift; sourceTree = "<group>"; };
+		33ABE09B251A271000C22B91 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		33ABE09D251A27A500C22B91 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		33ABE09F251A29FB00C22B91 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +118,9 @@
 				33ABE0682519F2A100C22B91 /* Info.plist */,
 				33ABE097251A245500C22B91 /* LocationsTableViewCell.swift */,
 				33ABE099251A247F00C22B91 /* BookMarksTableViewCell.swift */,
+				33ABE09B251A271000C22B91 /* NetworkService.swift */,
+				33ABE09D251A27A500C22B91 /* Model.swift */,
+				33ABE09F251A29FB00C22B91 /* AddLocationViewController.swift */,
 			);
 			path = Cuddly;
 			sourceTree = "<group>";
@@ -265,10 +274,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33ABE09E251A27A500C22B91 /* Model.swift in Sources */,
 				33ABE05F2519F29900C22B91 /* ViewController.swift in Sources */,
 				33ABE05B2519F29900C22B91 /* AppDelegate.swift in Sources */,
+				33ABE0A0251A29FC00C22B91 /* AddLocationViewController.swift in Sources */,
 				33ABE098251A245700C22B91 /* LocationsTableViewCell.swift in Sources */,
 				33ABE05D2519F29900C22B91 /* SceneDelegate.swift in Sources */,
+				33ABE09C251A271000C22B91 /* NetworkService.swift in Sources */,
 				33ABE09A251A247F00C22B91 /* BookMarksTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
