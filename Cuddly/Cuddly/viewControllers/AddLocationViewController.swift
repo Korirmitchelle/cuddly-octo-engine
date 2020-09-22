@@ -13,7 +13,7 @@ class AddLocationViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     
     @IBAction func done(_ sender: Any) {
-        getweather()
+        showWeather()
     }
     @IBOutlet weak var locationPinImageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -37,9 +37,14 @@ class AddLocationViewController: UIViewController {
             locationManager.startUpdatingLocation()
         }
     }
-    func getweather(){
-        guard let latitude = lastLocation?.coordinate.latitude, let longitude = lastLocation?.coordinate.longitude else {return}
-       
+    func showWeather(){
+        let dictionary = [locationLabel.text: lastLocation]
+        UserDefaults.standard.set(dictionary, forKey: "locations")
+        guard lastLocation?.coordinate.latitude != nil,lastLocation?.coordinate.longitude != nil else {return}
+        guard let cityController = storyboard?.instantiateViewController(identifier: "CityViewController") as? CityViewController else {return}
+        cityController.currentlocation = self.lastLocation
+        cityController.city = locationLabel.text ?? ""
+        self.present(cityController, animated: true, completion: nil)
     }
     
 }
@@ -61,10 +66,9 @@ extension AddLocationViewController:MKMapViewDelegate{
         let distanceFromPrevious = location.distance(from: self.lastLocation ?? location)
         if distanceFromPrevious > 500 {
             location.geocode(completion: {place,error in
-                self.locationLabel.text = place?.first?.name
+                self.locationLabel.text = place?.first?.locality
                 self.activityIndicator.stopAnimating()
                 self.activityIndicator.isHidden = true
-                NetworkService.shared.getWeather(onSuccess: <#T##(Result) -> Void#>, onError: <#T##(String) -> Void#>)
             })
         }
         self.lastLocation = location
