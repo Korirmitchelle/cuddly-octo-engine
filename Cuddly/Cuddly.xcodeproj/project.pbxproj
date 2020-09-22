@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		333424B8251A8A2900EC502E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333424B7251A8A2900EC502E /* Location.swift */; };
 		339D2F9D251A569D007A26CD /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D2F9C251A569D007A26CD /* CityViewController.swift */; };
 		339D2FA1251A5DAC007A26CD /* WeatherCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D2FA0251A5DAC007A26CD /* WeatherCollectionViewCell.swift */; };
 		339D2FA3251A6102007A26CD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 339D2FA2251A6102007A26CD /* Extensions.swift */; };
@@ -46,7 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		333424B7251A8A2900EC502E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		339D2F9C251A569D007A26CD /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 		339D2FA0251A5DAC007A26CD /* WeatherCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCollectionViewCell.swift; sourceTree = "<group>"; };
 		339D2FA2251A6102007A26CD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -154,7 +152,6 @@
 				33ABE09B251A271000C22B91 /* NetworkService.swift */,
 				33ABE09D251A27A500C22B91 /* Model.swift */,
 				339D2FA2251A6102007A26CD /* Extensions.swift */,
-				333424B7251A8A2900EC502E /* Location.swift */,
 			);
 			path = Cuddly;
 			sourceTree = "<group>";
@@ -314,7 +311,6 @@
 				33ABE05B2519F29900C22B91 /* AppDelegate.swift in Sources */,
 				33ABE0A0251A29FC00C22B91 /* AddLocationViewController.swift in Sources */,
 				33ABE098251A245700C22B91 /* LocationsTableViewCell.swift in Sources */,
-				333424B8251A8A2900EC502E /* Location.swift in Sources */,
 				339D2FA9251A7E9C007A26CD /* BookmarksViewController.swift in Sources */,
 				339D2F9D251A569D007A26CD /* CityViewController.swift in Sources */,
 				339D2FA3251A6102007A26CD /* Extensions.swift in Sources */,
