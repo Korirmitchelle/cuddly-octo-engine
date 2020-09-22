@@ -15,6 +15,8 @@
 		33ABE0672519F2A100C22B91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 33ABE0652519F2A100C22B91 /* LaunchScreen.storyboard */; };
 		33ABE0722519F2A200C22B91 /* CuddlyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE0712519F2A200C22B91 /* CuddlyTests.swift */; };
 		33ABE07D2519F2A200C22B91 /* CuddlyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE07C2519F2A200C22B91 /* CuddlyUITests.swift */; };
+		33ABE098251A245700C22B91 /* LocationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE097251A245500C22B91 /* LocationsTableViewCell.swift */; };
+		33ABE09A251A247F00C22B91 /* BookMarksTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE099251A247F00C22B91 /* BookMarksTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		33ABE0782519F2A200C22B91 /* CuddlyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CuddlyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		33ABE07C2519F2A200C22B91 /* CuddlyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuddlyUITests.swift; sourceTree = "<group>"; };
 		33ABE07E2519F2A200C22B91 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33ABE097251A245500C22B91 /* LocationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsTableViewCell.swift; sourceTree = "<group>"; };
+		33ABE099251A247F00C22B91 /* BookMarksTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookMarksTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				33ABE0632519F2A100C22B91 /* Assets.xcassets */,
 				33ABE0652519F2A100C22B91 /* LaunchScreen.storyboard */,
 				33ABE0682519F2A100C22B91 /* Info.plist */,
+				33ABE097251A245500C22B91 /* LocationsTableViewCell.swift */,
+				33ABE099251A247F00C22B91 /* BookMarksTableViewCell.swift */,
 			);
 			path = Cuddly;
 			sourceTree = "<group>";
@@ -261,7 +267,9 @@
 			files = (
 				33ABE05F2519F29900C22B91 /* ViewController.swift in Sources */,
 				33ABE05B2519F29900C22B91 /* AppDelegate.swift in Sources */,
+				33ABE098251A245700C22B91 /* LocationsTableViewCell.swift in Sources */,
 				33ABE05D2519F29900C22B91 /* SceneDelegate.swift in Sources */,
+				33ABE09A251A247F00C22B91 /* BookMarksTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
