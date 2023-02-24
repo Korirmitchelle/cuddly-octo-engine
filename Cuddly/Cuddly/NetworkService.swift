@@ -63,7 +63,9 @@ class NetworkService {
                 
                 do {
                     if response.statusCode == 200 {
-                        let items = try JSONDecoder().decode(Result.self, from: data)
+                        var items = try JSONDecoder().decode(Result.self, from: data)
+                        items.sortDailyArray()
+                        items.sortHourlyArray()
                         onSuccess(items)
                     } else {
                         onError("Response wasn't 200. It was: " + "\n\(response.statusCode)")

@@ -15,56 +15,48 @@ class CityViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
-    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    
     var city = ""
     var weatherResult: Result?
-    var locationManger: CLLocationManager!
     var currentlocation: CLLocation?
+    var cityViewModel: CityViewModel?
+    private lazy var cellProvider: CityCellProvider = {
+        let provider = CityCellProvider(collectionView: collectionView, parent: self)
+        return provider
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
         segmentedControl.addTarget(self, action: #selector(reload), for: .valueChanged)
-
     }
+    
     @objc func reload(){
         collectionView.reloadData()
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if cityViewModel == nil {
+            self.cityViewModel = CityViewModel(delegate: self)
+        }
         guard let latitude = currentlocation?.coordinate.latitude, let longitude = currentlocation?.coordinate.longitude else {return}
         NetworkService.shared.setLatitude(latitude)
         NetworkService.shared.setLongitude(longitude)
-        self.getWeather()
+        cityViewModel?.getWeather()
     }
-    
     
     func updateCurrentView(currentWeather: Current, city: String) {
         cityLabel.text = city
         dateLabel.text = Date.getTodaysDate()
+        guard currentWeather.weather.indices.contains(0) else {
+            return
+        }
         weatherLabel.text = currentWeather.weather[0].description.capitalized
         todayImageView.image = UIImage(named: currentWeather.weather[0].icon)
-    }
-    
-  
-    func getWeather() {
-        NetworkService.shared.getWeather(onSuccess: { (result) in
-            self.weatherResult = result
-            self.weatherResult?.sortDailyArray()
-            self.weatherResult?.sortHourlyArray()
-            self.updateViews()
-            print("weather result here \(result)")
-            
-        }) { (errorMessage) in
-            debugPrint(errorMessage)
-        }
     }
     
     func updateViews() {
@@ -77,54 +69,29 @@ class CityViewController: UIViewController {
             return
         }
         self.updateCurrentView(currentWeather: weatherResult.current, city: city)
-
     }
-
+    
     
 }
 extension CityViewController: UICollectionViewDelegate,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let index = segmentedControl.selectedSegmentIndex
-        let segmentTitle = segmentedControl.titleForSegment(at: index) ?? ""
-        var count = 4
-        if segmentTitle == "Today"{
-            count = weatherResult?.hourly.count ?? 4
-        }
-        else if segmentTitle == "Weekly"{
-            count = weatherResult?.daily.count ?? 4
-        }
-        return count
+        let segmentType = SegmentType(rawValue: segmentedControl.selectedSegmentIndex)
+        return cellProvider.itemsForSections(numberOfItemsInSection: section, segmentType: segmentType, weatherResult: weatherResult)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weathercell", for: indexPath) as? WeatherCollectionViewCell else {
-            return UICollectionViewCell()
-        }
-        let segmentTitle = segmentedControl.titleForSegment(at: segmentedControl.selectedSegmentIndex) ?? ""
-        if segmentTitle == "Today"{
-            if let humidity = weatherResult?.hourly[indexPath.row].humidity{
-                cell.topLabel.text = String(humidity)
-            }
-            if let temperature = weatherResult?.hourly[indexPath.row].temp{
-                cell.bottomLabel.text = String(temperature)
-            }
-            if let hour = weatherResult?.hourly[indexPath.row]{
-                cell.weatherImageView.image = UIImage(named: hour.weather[0].icon)
-            }
+        let segmentType = SegmentType(rawValue: segmentedControl.selectedSegmentIndex)
+        return cellProvider.cellForRowAt(cellForItemAt: indexPath, segmentType: segmentType, weatherResult: weatherResult)
+    }
+}
 
-        }
-        else if segmentTitle == "Weekly"{
-            if let day = weatherResult?.daily[indexPath.row] {
-                cell.weatherImageView.image = UIImage(named: day.weather[0].icon)
-            }
-
-            if let humidity = weatherResult?.daily[indexPath.row].humidity{
-                cell.topLabel.text = String(humidity)
-            }
-            if let temperature = weatherResult?.daily[indexPath.row].temp.day{
-                cell.bottomLabel.text = String(temperature)
-            }
-        }
-        return cell
+extension CityViewController: CityDelegate{
+    func foundResult(result: Result) {
+        self.weatherResult = result
+        self.updateViews()
+    }
+    
+    func requestFailed(with error: String) {
+        //TODO: Error Handling
     }
 }
