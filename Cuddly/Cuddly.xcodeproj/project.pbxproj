@@ -24,6 +24,8 @@
 		33ABE09C251A271000C22B91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE09B251A271000C22B91 /* NetworkService.swift */; };
 		33ABE09E251A27A500C22B91 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE09D251A27A500C22B91 /* Model.swift */; };
 		33ABE0A0251A29FC00C22B91 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE09F251A29FB00C22B91 /* AddLocationViewController.swift */; };
+		F5B6624729A905B900580C12 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B6624629A905B900580C12 /* UIColorExtensions.swift */; };
+		F5B6624929A907C700580C12 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B6624829A907C700580C12 /* StringExtensions.swift */; };
 		F5B76B3529A76FAE0093D90A /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B76B3429A76FAE0093D90A /* LocationsViewModel.swift */; };
 		F5B76B3829A7AAAC0093D90A /* GeoCoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B76B3729A7AAAC0093D90A /* GeoCoderService.swift */; };
 		F5B76B3A29A8A3070093D90A /* AddLocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B76B3929A8A3070093D90A /* AddLocationsViewModel.swift */; };
@@ -75,6 +77,8 @@
 		33ABE09B251A271000C22B91 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		33ABE09D251A27A500C22B91 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		33ABE09F251A29FB00C22B91 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		F5B6624629A905B900580C12 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
+		F5B6624829A907C700580C12 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		F5B76B3429A76FAE0093D90A /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
 		F5B76B3729A7AAAC0093D90A /* GeoCoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoderService.swift; sourceTree = "<group>"; };
 		F5B76B3929A8A3070093D90A /* AddLocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationsViewModel.swift; sourceTree = "<group>"; };
@@ -223,6 +227,8 @@
 			children = (
 				339D2FA2251A6102007A26CD /* DateExtensions.swift */,
 				F5B76B3D29A8D9860093D90A /* AppConstants.swift */,
+				F5B6624629A905B900580C12 /* UIColorExtensions.swift */,
+				F5B6624829A907C700580C12 /* StringExtensions.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -381,11 +387,13 @@
 				339D2F9D251A569D007A26CD /* CityViewController.swift in Sources */,
 				F5B76B3829A7AAAC0093D90A /* GeoCoderService.swift in Sources */,
 				339D2FA3251A6102007A26CD /* DateExtensions.swift in Sources */,
+				F5B6624729A905B900580C12 /* UIColorExtensions.swift in Sources */,
 				339D2FA5251A7E1A007A26CD /* LocationsViewController.swift in Sources */,
 				F5B76B4D29A8F2B70093D90A /* BookMarksViewModel.swift in Sources */,
 				33ABE05D2519F29900C22B91 /* SceneDelegate.swift in Sources */,
 				33ABE09C251A271000C22B91 /* NetworkService.swift in Sources */,
 				33ABE09A251A247F00C22B91 /* BookMarksTableViewCell.swift in Sources */,
+				F5B6624929A907C700580C12 /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,8 @@ import MapKit
 
 class CityViewController: UIViewController {
     
+    @IBOutlet weak var bottomSectionView: UIView!
+    @IBOutlet weak var topSectionView: UIView!
     @IBOutlet weak var todayImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
@@ -58,6 +60,11 @@ class CityViewController: UIViewController {
         }
         weatherLabel.text = currentWeather.weather[0].description.capitalized
         todayImageView.image = UIImage(named: currentWeather.weather[0].icon)
+        let weather = currentWeather.weather[0].main.getWeatherType()
+        bottomSectionView.backgroundColor = weather.backgroundColor
+        topSectionView.backgroundColor = UIColor(patternImage: UIImage(named: weather.imageName) ?? UIImage())
+
+        
     }
     
     func updateViews() {

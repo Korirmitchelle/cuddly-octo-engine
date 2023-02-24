@@ -7,10 +7,41 @@
 //
 
 import Foundation
+import UIKit
 
 enum SegmentType: Int {
     case today
     case weekly
+}
+
+enum ProbableWeather {
+    case sunny
+    case rainy
+    case cloudy
+    
+    var imageName: String {
+        switch self {
+        case .sunny:
+            return "background_sunny"
+        case .rainy:
+            return "background_rainy"
+        case .cloudy:
+            return "background_cloudy"
+        }
+    }
+    
+    var backgroundColor: UIColor? {
+        switch self {
+        case .sunny:
+            return UIColor(hex: "#47AB2F")
+        case .rainy:
+            return UIColor(hex: "#57575D")
+        case .cloudy:
+            return UIColor(hex: "#54717A")
+
+        }
+    }
+    
 }
 
 protocol CityDelegate: AnyObject {
