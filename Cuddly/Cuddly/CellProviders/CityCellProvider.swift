@@ -19,61 +19,32 @@ final class CityCellProvider {
     }
     
     
-    func cellForRowAt(cellForItemAt indexPath: IndexPath, segmentType: SegmentType?, weatherResult: Result?) -> UITableViewCell {
+    func cellForRowAt(cellForItemAt indexPath: IndexPath, weatherResult: Result?) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? WeatherTableViewCell, let segmentType = segmentType else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? WeatherTableViewCell else {
             return UITableViewCell()
         }
-        switch segmentType {
-        case .today:
-           
-            if let time = weatherResult?.hourly[indexPath.row].dt {
-                let date = Date(timeIntervalSince1970: TimeInterval(time))
-                cell.dayLabel.text = date.getHourFrom()
-
-            }
-            
-            if let temperature = weatherResult?.hourly[indexPath.row].temp {
-                cell.temperatureLabel.text = String(temperature)
-            }
-            
-            if let hour = weatherResult?.hourly[indexPath.row], hour.weather.indices.contains(0) {
-                cell.weatherImageView.image = UIImage(named: hour.weather[0].icon)
-            }
-
-            
-        case .weekly:
-            
-            if let day = weatherResult?.daily[indexPath.row], day.weather.indices.contains(0) {
-                cell.weatherImageView.image = UIImage(named: day.weather[0].icon)
-            }
-            
-            if let time = weatherResult?.daily[indexPath.row].dt {
-                let date = Date(timeIntervalSince1970: TimeInterval(time))
-                cell.dayLabel.text = date.getDayOfWeekFrom()
-                
-            }
-            
-            if let temperature = weatherResult?.daily[indexPath.row].temp.day {
-                cell.temperatureLabel.text = String(temperature) + "°C"
-            }
+        if let day = weatherResult?.daily[indexPath.row], day.weather.indices.contains(0) {
+            cell.weatherImageView.image = UIImage(named: day.weather[0].icon)
+        }
+        
+        if let time = weatherResult?.daily[indexPath.row].dt {
+            let date = Date(timeIntervalSince1970: TimeInterval(time))
+            cell.dayLabel.text = date.getDayOfWeekFrom()
             
         }
+        
+        if let temperature = weatherResult?.daily[indexPath.row].temp.day {
+            cell.temperatureLabel.text = String(temperature) + "°C"
+        }
+        
+       
         return cell
     }
     
     
-    func itemsForSections(numberOfItemsInSection section: Int, segmentType: SegmentType?, weatherResult: Result?) -> Int {
-        var count: Int?
-        switch segmentType {
-        case .today:
-            count = weatherResult?.hourly.count
-        case .weekly:
-            count = weatherResult?.daily.count
-        case .none:
-            break
-        }
-        return count ?? 4
+    func itemsForSections(numberOfItemsInSection section: Int, weatherResult: Result?) -> Int {
+        return weatherResult?.daily.count ?? 4
     }
 
 }

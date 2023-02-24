@@ -11,15 +11,18 @@ import MapKit
 
 class CityViewController: UIViewController {
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var bottomSectionView: UIView!
     @IBOutlet weak var topSectionView: UIView!
-    @IBOutlet weak var todayImageView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var weatherTableView: UITableView!
     
+    @IBOutlet weak var maximumTemperatureLabel: UILabel!
+    @IBOutlet weak var currentTemperatureLabel: UILabel!
+    @IBOutlet weak var minimumTemperatureLabel: UILabel!
+
     var city = ""
     var weatherResult: Result?
     var currentlocation: CLLocation?
@@ -34,11 +37,12 @@ class CityViewController: UIViewController {
         super.viewDidLoad()
         weatherTableView.delegate = self
         weatherTableView.dataSource = self
-        segmentedControl.addTarget(self, action: #selector(reload), for: .valueChanged)
+        setupUI()
     }
     
-    @objc func reload(){
-        weatherTableView.reloadData()
+    func setupUI() {
+        topSectionView.isHidden = true
+        bottomSectionView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,12 +63,17 @@ class CityViewController: UIViewController {
             return
         }
         weatherLabel.text = currentWeather.weather[0].description.capitalized
-        todayImageView.image = UIImage(named: currentWeather.weather[0].icon)
         let weather = currentWeather.weather[0].main.getWeatherType()
         bottomSectionView.backgroundColor = weather.backgroundColor
         topSectionView.backgroundColor = UIColor(patternImage: UIImage(named: weather.imageName) ?? UIImage())
-
-        
+        currentTemperatureLabel.text = "\(currentWeather.temp)°c"
+        let temperatures = weatherResult?.hourly.map{($0.temp)}.sorted()
+        if let minimumTemperature = temperatures?.first{
+            minimumTemperatureLabel.text = "\(minimumTemperature)°c"
+        }
+        if let maximumTemperature = temperatures?.last{
+            maximumTemperatureLabel.text = "\(maximumTemperature)°c"
+        }
     }
     
     func updateViews() {
@@ -83,13 +92,11 @@ class CityViewController: UIViewController {
 }
 extension CityViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let segmentType = SegmentType(rawValue: segmentedControl.selectedSegmentIndex)
-        return cellProvider.itemsForSections(numberOfItemsInSection: section, segmentType: segmentType, weatherResult: weatherResult)
+        return cellProvider.itemsForSections(numberOfItemsInSection: section, weatherResult: weatherResult)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let segmentType = SegmentType(rawValue: segmentedControl.selectedSegmentIndex)
-        return cellProvider.cellForRowAt(cellForItemAt: indexPath, segmentType: segmentType, weatherResult: weatherResult)
+        return cellProvider.cellForRowAt(cellForItemAt: indexPath, weatherResult: weatherResult)
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -100,6 +107,9 @@ extension CityViewController: CityDelegate{
     func foundResult(result: Result) {
         self.weatherResult = result
         self.updateViews()
+        activityIndicator.stopAnimating()
+        topSectionView.isHidden = false
+        bottomSectionView.isHidden = false
     }
     
     func requestFailed(with error: String) {
