@@ -22,8 +22,9 @@ class CityViewController: UIViewController {
     var weatherResult: Result?
     var currentlocation: CLLocation?
     var cityViewModel: CityViewModel?
+    
     private lazy var cellProvider: CityCellProvider = {
-        let provider = CityCellProvider(collectionView: collectionView, parent: self)
+        let provider = CityCellProvider(collectionView: collectionView)
         return provider
     }()
     

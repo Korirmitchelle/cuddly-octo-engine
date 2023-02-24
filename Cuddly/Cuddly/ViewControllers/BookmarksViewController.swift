@@ -12,53 +12,61 @@ import CoreLocation
 
 
 class BookmarksViewController: UIViewController {
-    var locations = [String]()
+    var bookMarksViewModel: BookMarksViewModel?
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let saved = UserDefaults.standard.value(forKey: "locations") as? [String]{
-            locations = saved
-        }
+        bookMarksViewModel = BookMarksViewModel(delegate: self)
         tableView.dataSource = self
         tableView.delegate = self
-        
-        // Do any additional setup after loading the view.
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let saved = UserDefaults.standard.value(forKey: "locations") as? [String]{
-            locations = saved
+        saveLocations()
+    }
+    
+    func saveLocations(){
+        if let saved = UserDefaults.standard.value(forKey: "locations") as? [String] {
+            bookMarksViewModel?.locations = saved
             tableView.reloadData()
         }
     }
-    func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> () ) {
-        CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
-    }
+    
 }
-
-
 
 extension BookmarksViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        return bookMarksViewModel?.locations.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "bookscell") as? BookMarksTableViewCell else {return UITableViewCell()}
-        cell.label.text = locations[indexPath.row]
+        cell.label.text = bookMarksViewModel?.locations[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let name = locations[indexPath.row]
-        getCoordinateFrom(address: name, completion: {location,error in
-            guard let cityController = self.storyboard?.instantiateViewController(identifier: "CityViewController") as? CityViewController else {return}
-            guard let lat = location?.latitude ,let lon = location?.longitude else {return}
-            cityController.currentlocation = CLLocation(latitude: lat, longitude: lon)
-            cityController.city = name
-            self.present(cityController, animated: true, completion: nil)
-        })
+        guard let name = bookMarksViewModel?.locations[indexPath.row] else {
+            return
+        }
+        bookMarksViewModel?.getCoordinateFrom(address: name)
         
     }
+}
+
+extension BookmarksViewController: GeocoderDelegate {
+    func foundLocation(location: CLLocationCoordinate2D, name: String) {
+        guard let cityController = self.storyboard?.instantiateViewController(identifier: "CityViewController") as? CityViewController else {return}
+        cityController.currentlocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+        cityController.city = name
+        self.present(cityController, animated: true, completion: nil)
+    }
+    
+    func locationQueryFailed(with error: Error?) {
+        //TODO: Error handling
+
+    }
+    
 }

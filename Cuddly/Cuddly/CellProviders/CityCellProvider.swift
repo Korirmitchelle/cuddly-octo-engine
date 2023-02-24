@@ -14,8 +14,7 @@ final class CityCellProvider {
     weak var collectionView: UICollectionView!
     let reuseId = "weathercell"
     
-    init(collectionView: UICollectionView,
-         parent: UIViewController) {
+    init(collectionView: UICollectionView) {
         self.collectionView = collectionView
     }
     
@@ -34,7 +33,6 @@ final class CityCellProvider {
             
             if let temperature = weatherResult?.hourly[indexPath.row].temp {
                 cell.bottomLabel.text = String(temperature)
-
             }
             
             if let hour = weatherResult?.hourly[indexPath.row], hour.weather.indices.contains(0) {
@@ -46,9 +44,7 @@ final class CityCellProvider {
             
             if let day = weatherResult?.daily[indexPath.row], day.weather.indices.contains(0) {
                 cell.weatherImageView.image = UIImage(named: day.weather[0].icon)
-
             }
-            
             
             if let humidity = weatherResult?.daily[indexPath.row].humidity {
                 cell.topLabel.text = String(humidity)
