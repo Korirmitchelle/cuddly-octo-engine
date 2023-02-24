@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-    <string>This allows the app to show weather updates</string>
-    <key>NSLocationAlwaysUsageDescription</key>
-    <string>This allows the app to show weather updates</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>This allows the app to show weather updates</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -26,6 +20,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This allows the app to show weather updates</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This allows the app to show weather updates</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>This allows the app to show weather updates</string>
+	<key>Status bar style</key>
+	<string>Light Content</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -53,6 +55,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -66,5 +70,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>View controller-based status bar appearance</key>
+	<false/>
 </dict>
 </plist>

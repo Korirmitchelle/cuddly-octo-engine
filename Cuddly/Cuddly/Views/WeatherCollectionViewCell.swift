@@ -2,14 +2,16 @@
 //  WeatherCollectionViewCell.swift
 //  Cuddly
 //
-//  Created by Mitch on 22/09/2020.
-//  Copyright © 2020 Mitch. All rights reserved.
+//  Created by Mitchelle Korir on 24/02/2023.
+//  Copyright © 2023 Mitch. All rights reserved.
 //
 
 import UIKit
 
-class WeatherCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var bottomLabel: UILabel!
+class WeatherTableViewCell: UITableViewCell {
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
+
+
 }
