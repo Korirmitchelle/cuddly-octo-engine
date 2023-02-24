@@ -17,8 +17,8 @@ class CityViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var weatherTableView: UITableView!
     
     var city = ""
     var weatherResult: Result?
@@ -26,19 +26,19 @@ class CityViewController: UIViewController {
     var cityViewModel: CityViewModel?
     
     private lazy var cellProvider: CityCellProvider = {
-        let provider = CityCellProvider(collectionView: collectionView)
+        let provider = CityCellProvider(tableView: weatherTableView)
         return provider
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        weatherTableView.delegate = self
+        weatherTableView.dataSource = self
         segmentedControl.addTarget(self, action: #selector(reload), for: .valueChanged)
     }
     
     @objc func reload(){
-        collectionView.reloadData()
+        weatherTableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,7 +69,7 @@ class CityViewController: UIViewController {
     
     func updateViews() {
         updateCurrentWeather()
-        collectionView.reloadData()
+        weatherTableView.reloadData()
     }
     
     func updateCurrentWeather() {
@@ -81,15 +81,18 @@ class CityViewController: UIViewController {
     
     
 }
-extension CityViewController: UICollectionViewDelegate,UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension CityViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let segmentType = SegmentType(rawValue: segmentedControl.selectedSegmentIndex)
         return cellProvider.itemsForSections(numberOfItemsInSection: section, segmentType: segmentType, weatherResult: weatherResult)
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let segmentType = SegmentType(rawValue: segmentedControl.selectedSegmentIndex)
         return cellProvider.cellForRowAt(cellForItemAt: indexPath, segmentType: segmentType, weatherResult: weatherResult)
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
 }
 

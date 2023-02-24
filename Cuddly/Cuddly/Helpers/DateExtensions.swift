@@ -18,25 +18,26 @@ extension Date {
         return dateFormatter.string(from: date)
     }
     
-    static func getHourFrom(date: Date) -> String {
+     func getHourFrom() -> String {
         
         let dateFormatter = DateFormatter()
         
         dateFormatter.timeStyle = .short
         dateFormatter.dateStyle = .none
-        var string = dateFormatter.string(from: date)
+        var string = dateFormatter.string(from: self)
         if string.last == "M" {
             string = String(string.prefix(string.count - 3))
         }
         return string
     }
     
-    static func getDayOfWeekFrom(date: Date) -> String {
+    func getDayOfWeekFrom() -> String {
         
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .none
-        dateFormatter.dateStyle = .long
-        var string = dateFormatter.string(from: date)
+        dateFormatter.dateStyle = .full
+        var string = dateFormatter.string(from: self)
+        
         if let index = string.firstIndex(of: ",") {
             string = String(string.prefix(upTo: index))
             return string

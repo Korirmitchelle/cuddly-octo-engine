@@ -8,9 +8,9 @@
 
 import UIKit
 
-class WeatherCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var topLabel: UILabel!
-    @IBOutlet weak var bottomLabel: UILabel!
+class WeatherTableViewCell: UITableViewCell {
+    @IBOutlet weak var dayLabel: UILabel!
+    @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
 
 

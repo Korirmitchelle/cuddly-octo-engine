@@ -11,28 +11,30 @@ import UIKit
 
 final class CityCellProvider {
     
-    weak var collectionView: UICollectionView!
+    weak var tableView: UITableView!
     let reuseId = "weathercell"
     
-    init(collectionView: UICollectionView) {
-        self.collectionView = collectionView
+    init(tableView: UITableView) {
+        self.tableView = tableView
     }
     
     
-    func cellForRowAt(cellForItemAt indexPath: IndexPath, segmentType: SegmentType?, weatherResult: Result?) -> UICollectionViewCell {
+    func cellForRowAt(cellForItemAt indexPath: IndexPath, segmentType: SegmentType?, weatherResult: Result?) -> UITableViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath) as? WeatherCollectionViewCell, let segmentType = segmentType else {
-            return UICollectionViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reuseId, for: indexPath) as? WeatherTableViewCell, let segmentType = segmentType else {
+            return UITableViewCell()
         }
         switch segmentType {
         case .today:
            
-            if let humidity = weatherResult?.hourly[indexPath.row].humidity {
-                cell.topLabel.text = String(humidity)
+            if let time = weatherResult?.hourly[indexPath.row].dt {
+                let date = Date(timeIntervalSince1970: TimeInterval(time))
+                cell.dayLabel.text = date.getHourFrom()
+
             }
             
             if let temperature = weatherResult?.hourly[indexPath.row].temp {
-                cell.bottomLabel.text = String(temperature)
+                cell.temperatureLabel.text = String(temperature)
             }
             
             if let hour = weatherResult?.hourly[indexPath.row], hour.weather.indices.contains(0) {
@@ -46,12 +48,14 @@ final class CityCellProvider {
                 cell.weatherImageView.image = UIImage(named: day.weather[0].icon)
             }
             
-            if let humidity = weatherResult?.daily[indexPath.row].humidity {
-                cell.topLabel.text = String(humidity)
+            if let time = weatherResult?.daily[indexPath.row].dt {
+                let date = Date(timeIntervalSince1970: TimeInterval(time))
+                cell.dayLabel.text = date.getDayOfWeekFrom()
+                
             }
             
             if let temperature = weatherResult?.daily[indexPath.row].temp.day {
-                cell.bottomLabel.text = String(temperature)
+                cell.temperatureLabel.text = String(temperature) + "°C"
             }
             
         }
