@@ -12,9 +12,7 @@ import MapKit
 class AddLocationViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     
-    @IBAction func done(_ sender: Any) {
-        showWeather()
-    }
+    
     @IBOutlet weak var locationPinImageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mapView: MKMapView!
@@ -37,6 +35,12 @@ class AddLocationViewController: UIViewController {
             locationManager.startUpdatingLocation()
         }
     }
+    
+    @IBAction func done(_ sender: Any) {
+        showWeather()
+    }
+    
+    
     func showWeather(){
         let userDefaults = UserDefaults.standard
         if let saved = UserDefaults.standard.value(forKey: "locations") as? [String]{

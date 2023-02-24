@@ -13,7 +13,7 @@ class NetworkService {
     static let shared = NetworkService()
     
     let URL_SAMPLE = "https://api.openweathermap.org/data/2.5/onecall?lat=60.99&lon=30.9&appid=c6e381d8c7ff98f0fee43775817cf6ad"
-    let URL_API_KEY = "89575d3c850c4fe09a01e9aedf6aec9e"
+    let URL_API_KEY = "a2f3fbce33e63301e42bb1be2e2a3f4a"
     var URL_LATITUDE = "60.99"
     var URL_LONGITUDE = "30.0"
     var URL_GET_ONE_CALL = ""
