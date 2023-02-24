@@ -44,6 +44,7 @@ extension BookmarksViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "bookscell") as? BookMarksTableViewCell else {return UITableViewCell()}
         cell.label.text = bookMarksViewModel?.locations[indexPath.row]
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -65,8 +66,7 @@ extension BookmarksViewController: GeocoderDelegate {
     }
     
     func locationQueryFailed(with error: Error?) {
-        //TODO: Error handling
-
+        self.showAlert(alertText: "Failed", alertMessage: error?.localizedDescription ?? "Something went wrong")
     }
     
 }

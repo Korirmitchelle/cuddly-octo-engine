@@ -66,13 +66,13 @@ class CityViewController: UIViewController {
         let weather = currentWeather.weather[0].main.getWeatherType()
         bottomSectionView.backgroundColor = weather.backgroundColor
         topSectionView.backgroundColor = UIColor(patternImage: UIImage(named: weather.imageName) ?? UIImage())
-        currentTemperatureLabel.text = "\(currentWeather.temp)°c"
+        currentTemperatureLabel.text = "\(currentWeather.temp)°C"
         let temperatures = weatherResult?.hourly.map{($0.temp)}.sorted()
         if let minimumTemperature = temperatures?.first{
-            minimumTemperatureLabel.text = "\(minimumTemperature)°c"
+            minimumTemperatureLabel.text = "\(minimumTemperature)°C"
         }
         if let maximumTemperature = temperatures?.last{
-            maximumTemperatureLabel.text = "\(maximumTemperature)°c"
+            maximumTemperatureLabel.text = "\(maximumTemperature)°C"
         }
     }
     
@@ -113,6 +113,6 @@ extension CityViewController: CityDelegate{
     }
     
     func requestFailed(with error: String) {
-        //TODO: Error Handling
+        self.showAlert(alertText: "Failed", alertMessage: error)
     }
 }

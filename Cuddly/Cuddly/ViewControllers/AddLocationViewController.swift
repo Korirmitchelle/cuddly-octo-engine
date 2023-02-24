@@ -86,6 +86,6 @@ extension AddLocationViewController: PlaceDelegate {
     }
     
     func placeQueryFailed(with error: Error?) {
-        //TODO: Error handling
+        self.showAlert(alertText: "Failed", alertMessage: error?.localizedDescription ?? "Something went wrong")
     }
 }

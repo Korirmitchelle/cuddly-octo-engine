@@ -24,6 +24,7 @@
 		33ABE09C251A271000C22B91 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE09B251A271000C22B91 /* NetworkService.swift */; };
 		33ABE09E251A27A500C22B91 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE09D251A27A500C22B91 /* Model.swift */; };
 		33ABE0A0251A29FC00C22B91 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE09F251A29FB00C22B91 /* AddLocationViewController.swift */; };
+		F58185E329A927150016171E /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F58185E229A927150016171E /* ViewControllerExtension.swift */; };
 		F5B6624729A905B900580C12 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B6624629A905B900580C12 /* UIColorExtensions.swift */; };
 		F5B6624929A907C700580C12 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B6624829A907C700580C12 /* StringExtensions.swift */; };
 		F5B76B3529A76FAE0093D90A /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B76B3429A76FAE0093D90A /* LocationsViewModel.swift */; };
@@ -77,6 +78,7 @@
 		33ABE09B251A271000C22B91 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		33ABE09D251A27A500C22B91 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		33ABE09F251A29FB00C22B91 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
+		F58185E229A927150016171E /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		F5B6624629A905B900580C12 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		F5B6624829A907C700580C12 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		F5B76B3429A76FAE0093D90A /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				F5B76B3D29A8D9860093D90A /* AppConstants.swift */,
 				F5B6624629A905B900580C12 /* UIColorExtensions.swift */,
 				F5B6624829A907C700580C12 /* StringExtensions.swift */,
+				F58185E229A927150016171E /* ViewControllerExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				33ABE09E251A27A500C22B91 /* Model.swift in Sources */,
 				F5B76B3E29A8D9860093D90A /* AppConstants.swift in Sources */,
 				33ABE05F2519F29900C22B91 /* ViewController.swift in Sources */,
+				F58185E329A927150016171E /* ViewControllerExtension.swift in Sources */,
 				F5B76B3529A76FAE0093D90A /* LocationsViewModel.swift in Sources */,
 				33ABE05B2519F29900C22B91 /* AppDelegate.swift in Sources */,
 				F5B76B4729A8EBEE0093D90A /* WeatherCollectionViewCell.swift in Sources */,

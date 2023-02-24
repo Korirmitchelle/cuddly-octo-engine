@@ -28,6 +28,7 @@ extension LocationsViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "locationscell") as? LocationsTableViewCell else {return UITableViewCell()}
+        cell.selectionStyle = .none
         cell.label.text = locationsViewModel?.cities[indexPath.row]
         return cell
     }
@@ -50,6 +51,6 @@ extension LocationsViewController: GeocoderDelegate {
     }
     
     func locationQueryFailed(with error: Error?) {
-        //TODO: Error handling
+        self.showAlert(alertText: "Failed", alertMessage: error?.localizedDescription ?? "Something went wrong")
     }
 }
