@@ -27,6 +27,8 @@
 		33ABE0A0251A29FC00C22B91 /* AddLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33ABE09F251A29FB00C22B91 /* AddLocationViewController.swift */; };
 		F5B76B3529A76FAE0093D90A /* LocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B76B3429A76FAE0093D90A /* LocationsViewModel.swift */; };
 		F5B76B3829A7AAAC0093D90A /* GeoCoderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B76B3729A7AAAC0093D90A /* GeoCoderService.swift */; };
+		F5B76B3A29A8A3070093D90A /* AddLocationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B76B3929A8A3070093D90A /* AddLocationsViewModel.swift */; };
+		F5B76B3E29A8D9860093D90A /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B76B3D29A8D9860093D90A /* AppConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +75,8 @@
 		33ABE09F251A29FB00C22B91 /* AddLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationViewController.swift; sourceTree = "<group>"; };
 		F5B76B3429A76FAE0093D90A /* LocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewModel.swift; sourceTree = "<group>"; };
 		F5B76B3729A7AAAC0093D90A /* GeoCoderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoCoderService.swift; sourceTree = "<group>"; };
+		F5B76B3929A8A3070093D90A /* AddLocationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLocationsViewModel.swift; sourceTree = "<group>"; };
+		F5B76B3D29A8D9860093D90A /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +162,7 @@
 				33ABE09B251A271000C22B91 /* NetworkService.swift */,
 				33ABE09D251A27A500C22B91 /* Model.swift */,
 				339D2FA2251A6102007A26CD /* Extensions.swift */,
+				F5B76B3D29A8D9860093D90A /* AppConstants.swift */,
 			);
 			path = Cuddly;
 			sourceTree = "<group>";
@@ -184,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				F5B76B3429A76FAE0093D90A /* LocationsViewModel.swift */,
+				F5B76B3929A8A3070093D90A /* AddLocationsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -328,12 +334,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				33ABE09E251A27A500C22B91 /* Model.swift in Sources */,
+				F5B76B3E29A8D9860093D90A /* AppConstants.swift in Sources */,
 				33ABE05F2519F29900C22B91 /* ViewController.swift in Sources */,
 				339D2FA1251A5DAC007A26CD /* WeatherCollectionViewCell.swift in Sources */,
 				F5B76B3529A76FAE0093D90A /* LocationsViewModel.swift in Sources */,
 				33ABE05B2519F29900C22B91 /* AppDelegate.swift in Sources */,
 				33ABE0A0251A29FC00C22B91 /* AddLocationViewController.swift in Sources */,
 				33ABE098251A245700C22B91 /* LocationsTableViewCell.swift in Sources */,
+				F5B76B3A29A8A3070093D90A /* AddLocationsViewModel.swift in Sources */,
 				339D2FA9251A7E9C007A26CD /* BookmarksViewController.swift in Sources */,
 				339D2F9D251A569D007A26CD /* CityViewController.swift in Sources */,
 				F5B76B3829A7AAAC0093D90A /* GeoCoderService.swift in Sources */,
